@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado - Instrucciones</title>
+    <link rel="stylesheet" href="../CSS/cifrado.css">
+    <script src="../Javascript/cifrado.js"></script>
+</head>
+<body>
+
+    <div class="container" id="instrucciones-container">
+        
+        <!-- Imagen superior alineada arriba -->
+        <img src="../images/FlechaPuntos.svg" alt="Imagen Superior" class="imagen-superior">
+        
+        <!-- Contenedor central con contenido -->
+        <div class="contenido-central">
+            <!-- Imagen del título del juego -->
+            <img src="../images/TituloCifrado.svg" alt="Título del Juego" class="titulo-juego">
+
+            <!-- Párrafo de instrucciones -->
+            <p class="instrucciones">
+                ¡Etapa final de la misión! El mensaje secreto está al alcance, pero las amenazas finales han activado un código cifrado que debe ser decifrado para proteger la información confidencial.
+                En este desafío, necesitarás usar tu ingenio y habilidad para descifrar el código oculto en las letras utilizando un sistema de Cifrado César. Cada letra contiene pistas que, al ser desplazadas un número fijo de lugares en el alfabeto, revelarán una contraseña.
+                tu objetivo es encontrar la clave correcta en el menor tiempo posible y desbloquear los mensajes críticos relacionados con la solución.
+            </p>
+
+            <!-- Mensaje destacado -->
+            <p class="mensaje-seguridad">¡La seguridad del cuadrante PP2025 depende de ti!</p>
+
+            <!-- Imagen que servirá de botón -->
+            <img src="../images/Btn_StartHome.svg" alt="Botón Iniciar" class="boton-iniciar" onclick="iniciarCifrado()">
+        </div>
+
+        <!-- Fila inferior con imágenes -->
+        <div class="fila-fija">
+            <div class="columna-izquierda">
+                <img src="../images/PatronLIneasRegistro.svg" alt="Imagen Izquierda">
+            </div>
+            <div class="columna-derecha">
+                <img src="../images/TexturaRegistro.svg" alt="Imagen Derecha">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Nuevo contenedor para el juego (inicialmente oculto) -->
+    <!-- Contenedor del juego -->
+<div class="container" id="juego-container" style="display:none;">
+    
+    <!-- Imagen del título del juego -->
+    <img src="../images/TituloCifrado.svg" alt="Título del Juego" class="titulo-juegocifrado">
+
+    <!-- Fila de tiempo -->
+    <div class="fila-tiempo">
+        <span id="tiempo-restante">120</span>
+        <div class="barra-tiempo">
+            <div class="progreso" id="barra-progreso"></div>
+        </div>
+    </div>
+
+    <!-- Imagen centrada (40% de ancho) -->
+    <img src="../images/ClaveCifrado.png" alt="Clave Secreta" class="imagen-clave">
+
+    <!-- Inputs con mensaje cifrado -->
+    <div class="fila-inputs">
+        <div>
+        <input type="text" value="M" disabled>
+        <input type="text" value="O" disabled>
+        <input type="text" value="L" disabled>
+        <input type="text" value="Q" disabled>
+        <input type="text" value="B" disabled>
+        <input type="text" value="G" disabled>
+        <input type="text" value="X" disabled>
+        <input type="text" class="input-espacio" disabled>
+        <input type="text" value="X" disabled>
+    </div>
+    <div>
+        <input type="text" value="I" disabled>
+        <input type="text" value="X" disabled>
+        <input type="text" value="P" disabled>
+        <input type="text" class="input-espacio" disabled>
+        <input type="text" value="M" disabled>
+        <input type="text" value="B" disabled>
+        <input type="text" value="O" disabled>
+        <input type="text" value="L" disabled>
+        <input type="text" value="P" disabled>
+        <input type="text" value="K" disabled>
+        <input type="text" value="X" disabled>
+        <input type="text" value="P" disabled>
+    </div>
+    <div>
+   
+        <input type="text" value="A" disabled>
+        <input type="text" value="B" disabled>
+        <input type="text" value="C" disabled>
+        <input type="text" value="F" disabled>
+        <input type="text" value="B" disabled>
+        <input type="text" value="K" disabled>
+        <input type="text" value="A" disabled>
+        <input type="text" value="X" disabled>
+    </div>
+    <div>
+        <input type="text" value="I" disabled>
+        <input type="text" value="L" disabled>
+        <input type="text" value="P" disabled>
+        <input type="text" class="input-espacio" disabled>
+        <input type="text" value="A" disabled>
+        <input type="text" value="X" disabled>
+        <input type="text" value="Q" disabled>
+        <input type="text" value="L" disabled>
+        <input type="text" value="P" disabled>
+    </div>
+    </div>
+
+    <!-- Imagen centrada (20% de ancho) -->
+    <img src="../images/FlechaPuntos.svg" alt="Ícono Cifrado" class="icono-cifrado">
+
+    <!-- Inputs del mensaje descifrado -->
+    <div class="fila-inputs">
+        <div>
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-espacio" disabled>
+        <input type="text" class="input-descifrado">
+    </div>
+    <div>
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-espacio" disabled>
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+    </div>
+    <div>
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+    </div>
+    <div>
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-espacio" disabled>
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+        <input type="text" class="input-descifrado">
+    </div>
+    </div>
+
+    <!-- Botón de verificación -->
+    <img src="../images/Btn_Continuar.svg" alt="Verificar Código" class="boton-verificar" onclick="verificarCodigo()">
+
+    <!-- Mensaje de retroalimentación -->
+    <p class="mensaje-retro" id="mensaje-retro"></p>
+
+</div>
+
+
+</body>
+</html>

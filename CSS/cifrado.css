@@ -1,0 +1,259 @@
+/* Ajuste de la pantalla */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #192A47; /* Color de respaldo */
+    overflow: hidden; /* Evita scroll */
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100dvh; /* 🔹 Considera la interfaz del navegador en móvil */
+    background-image: url('../images/FondoRegistro.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Ajusta la imagen al contenedor */
+    background-position: center; /* Centra la imagen */
+    
+    /* 🔹 Centrar contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Nuevo contenedor para el juego con diferente fondo */
+#juego-container {
+    position: relative;
+    width: 100vw;
+    height: 100dvh;
+    background-image: url('../images/FondoCifrado.jpg'); /* Fondo específico del juego */
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Adaptación en computadora (9:16) */
+@media (min-width: 1024px) {
+    .container {
+        width: 50vh;
+        height: 90vh !important;
+    }
+
+    #juego-container{
+        width: 50vh;
+        height: 90vh !important;
+    }
+}
+
+/* Imagen superior alineada arriba */
+.imagen-superior {
+    width: 15%;
+    max-width: 100px;
+    height: auto;
+    margin-top: 10px; /* Espacio mínimo desde la parte superior */
+}
+
+/* Contenedor central */
+.contenido-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Mantiene la alineación centrada */
+    width: 80%;
+    height: 100%;
+    transform: translateY(-10%); /* Mueve el contenido 10% hacia arriba */
+}
+
+/* Imagen del título del juego */
+.titulo-juego {
+    width: 70%;
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Párrafo de instrucciones */
+.instrucciones {
+    width: 100%;
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 1.7vh;
+    color: #6e6e6e;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Párrafo destacado */
+.mensaje-seguridad {
+    font-family: 'Inter SemiBold', sans-serif;
+    font-size: 1.7vh;
+    color: #6e6e6e;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Imagen de botón */
+.boton-iniciar {
+    width: 50%;
+    max-width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 1;
+    padding-top: 20px;
+}
+
+.boton-iniciar:hover {
+    transform: scale(0.95);
+}
+
+/* Fila fija alineada abajo */
+.fila-fija {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+/* Columna izquierda (60%) */
+.columna-izquierda {
+    width: 60%;
+}
+
+.columna-izquierda img {
+    width: 100%;
+    height: auto;
+}
+
+/* Columna derecha (40%) */
+.columna-derecha {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.columna-derecha img {
+    width: 50%;
+    height: auto;
+}
+
+
+.titulo-juegocifrado {
+    width: 50%;
+    max-width: 280px;
+    height: auto;
+    margin: 30px 15px 15px 0;
+}
+
+
+.fila-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin:10px 0;
+}
+
+.fila-inputs input {
+    width: 20px;
+    height: 20px;
+    padding: 4px; 
+    border-radius: 7px;
+    transition: background 0.2s; 
+    background: linear-gradient(to bottom, #d0d0d0, #fcfcfc);
+    border: none;
+    font-family: 'Inter Semibold', sans-serif;
+    font-weight: 600;
+    font-size: 1.7vh;
+    color: #6e6e6e;
+    text-align: center;
+    z-index: 1;
+    outline: none;
+    text-transform: uppercase; /* Convierte el texto en mayúsculas automáticamente */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    transition: box-shadow 0.2s ease-in-out;
+    
+}
+
+.fila-inputs input:disabled{
+
+    opacity: 1;
+}
+
+/* Inputs editables */
+.input-descifrado {
+    border: 2px solid #3fcf4f;
+}
+
+.input-espacio{
+    background: transparent !important;
+    border: none !important;
+    pointer-events: none; /* Evita interacción */
+    width: 15px; /* Ajusta el ancho del espacio */
+}
+
+
+.imagen-clave {
+    width: 35%;
+}
+
+.icono-cifrado {
+    width: 15%;
+}
+
+.boton-verificar {
+    width: 30%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.boton-verificar:hover {
+    transform: scale(0.95);
+}
+
+.mensaje-retro {
+    font-size: 1.5vh;
+    color: red;
+    margin-top: 10px;
+}
+
+/* Fila de tiempo */
+.fila-tiempo {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin-top: 15px;
+}
+
+#tiempo-restante {
+    font-family: 'Inter SemiBold', sans-serif;
+    font-size: 2.2vh;
+    color: #6e6e6e;
+    width: 10%;
+}
+
+.barra-tiempo {
+    width: 85%;
+    height: 7px;
+    background: #555;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progreso {
+    width: 100%;
+    height: 100%;
+    background: #3fcf4f;
+    transition: width 1s linear;
+}

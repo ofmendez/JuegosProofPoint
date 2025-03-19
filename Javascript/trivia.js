@@ -1,5 +1,6 @@
 let preguntas = [
     {
+        imagenFondo: "../images/Pregunta01.png",
         imagen: "../images/Pregunta01.png",
         texto: "¿Quién es el empleado más mencionado en los ejemplos de Proofpoint?",
         opciones: [
@@ -7,46 +8,51 @@ let preguntas = [
             { texto: "Diego", correcta: false },
             { texto: "Güey", correcta: false },
             { texto: "Mariana", correcta: false },
-            { texto: "Mateo", correcta: true }
+            { texto: "Mateo", correcta: false }
         ]
     },
     {
+        imagenFondo: "../images/Pregunta01.png",
         imagen: "../images/Pregunta02.png",
         texto: "¿Cuál es el enfoque de Proofpoint?",
         opciones: [
             { texto: "Seguridad de red de próxima generación", correcta: false },
-            { texto: "Seguridad centrada en las personas", correcta: false },
+            { texto: "Seguridad centrada en las personas", correcta: true },
             { texto: "Seguridad de identidades", correcta: false },
-            { texto: "Seguridad de puntos finales y la nube", correcta: true }
+            { texto: "Seguridad de puntos finales y la nube", correcta: false }
         ]
     },
     {
+        imagenFondo: "../images/Pregunta02.png",
         imagen: "../images/Pregunta03.png",
         texto: "¿Qué soluciones tiene Proofpoint para proteger los correos electrónicos?",
         opciones: [
             { texto: "Solución basada en un Secure Email Gateway", correcta: false },
-            { texto: "Solución basada en APIs", correcta: true },
-            { texto: "Proofpoint ofrece las dos opciones", correcta: false },
-            { texto: "Proofpoint no ofrece nada en el área de protección de correos electónicos", correcta: false }
+            { texto: "Solución basada en APIs", correcta: false },
+            { texto: "Proofpoint ofrece las dos opciones", correcta: true },
+            { texto: "Proofpoint no ofrece nada en el área de protección de correos electrónicos", correcta: false }
         ]
     },
     {
+        imagenFondo: "../images/Pregunta03.png",
         imagen: "../images/Pregunta04.png",
-        texto: "¿Donde Proofpoint proteje los datos sensibles?",
+        texto: "¿Dónde Proofpoint proteje los datos sensibles?",
         opciones: [
             { texto: "Saliendo por correo electrónico, los portátiles y la red", correcta: false },
             { texto: "Saliendo por sistemas de sonido", correcta: false },
             { texto: "Todavía dentro de la organización", correcta: false },
-            { texto: "Respuesta A, B y C", correcta: false },
-            { texto: "Respuesta A y C", correcta: true }
+            { texto: "Respuestas A, B y C", correcta: false },
+            { texto: "Respuestas A y C", correcta: true }
         ]
     },
     // Agregar más preguntas aquí...
 ];
 
+
+
 let indicePregunta = 0;
 let puntajeTotal = 0;
-let tiempoRestante = 10;
+let tiempoRestante = 30;
 let temporizador;
 
 // Cargar los audios
@@ -59,7 +65,7 @@ let audioIncorrecto = new Audio("../audio/incorrecto.mp3");
 audioFondo.loop = true;
 
 function iniciarTemporizador() {
-    tiempoRestante = 10;
+    tiempoRestante = 30;
     actualizarTiempo();
 
     temporizador = setInterval(() => {
@@ -84,7 +90,7 @@ function iniciarTemporizador() {
 
 function actualizarTiempo() {
     document.getElementById("tiempo-restante").textContent = tiempoRestante;
-    let porcentaje = (tiempoRestante / 10) * 100;
+    let porcentaje = (tiempoRestante / 30) * 100;
     document.querySelector(".progreso").style.width = porcentaje + "%";
 }
 
@@ -117,9 +123,38 @@ function mostrarPantallaFinal() {
 
 function cargarPregunta() {
     let pregunta = preguntas[indicePregunta];
-    document.getElementById("imagen-pregunta").src = pregunta.imagen;
+
+    // Obtener referencias
+    let imagenPregunta = document.querySelector(".imagen-pregunta");
+    let imagenFondo = document.querySelector(".imagen-pregunta-fondo");
+    let mask = document.querySelector(".imagen-pregunta-mask");
+
+    // Asegurarse de que la máscara esté configurada correctamente
+    if (!imagenPregunta || !imagenFondo || !mask) {
+        console.error("No se encontraron los elementos en el DOM.");
+        return;
+    }
+
+    // Asignar las imágenes de la pregunta y fondo
+    imagenFondo.src = pregunta.imagenFondo;
+    imagenPregunta.src = pregunta.imagen;
+
+    // Reiniciar la máscara antes de aplicar la animación
+    mask.style.animation = "none";
+    mask.style.clipPath = "polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%)"; // Estado inicial
+
+    // Forzar la reactividad del estilo de la máscara
+    mask.offsetHeight; // Trigger reflow para que la animación se reinicie correctamente
+
+    // Aplicar animación de "revelado"
+    setTimeout(() => {
+        mask.style.animation = "revelarImagen 0.8s ease-in-out forwards";
+    }, 50);
+
+    // Actualizar el texto de la pregunta
     document.getElementById("texto-pregunta").textContent = pregunta.texto;
-    
+
+    // Limpiar y agregar nuevas opciones
     let opcionesDiv = document.querySelector(".opciones");
     opcionesDiv.innerHTML = "";
 
@@ -132,21 +167,23 @@ function cargarPregunta() {
     });
 
     // Resetear tiempo
-    tiempoRestante = 10;
+    tiempoRestante = 30;
     document.getElementById("tiempo-restante").textContent = tiempoRestante;
 
     // Reiniciar la barra de progreso inmediatamente
     let barraProgreso = document.querySelector(".progreso");
-    barraProgreso.style.transition = "none"; // Desactivar la animación temporalmente
-    barraProgreso.style.width = "100%"; // Llenar inmediatamente
+    barraProgreso.style.transition = "none";
+    barraProgreso.style.width = "100%";
 
-    // Pequeño retraso para volver a activar la animación de reducción
     setTimeout(() => {
         barraProgreso.style.transition = "width 1s linear";
     }, 50);
 
     iniciarTemporizador(); // Iniciar temporizador al cargar la pregunta
 }
+
+
+
 
 
 function seleccionarRespuesta(elemento, esCorrecta) {
@@ -172,18 +209,13 @@ function seleccionarRespuesta(elemento, esCorrecta) {
 
 
 
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
     if (document.body.getAttribute("data-page") === "juego") {
+        console.log("Página cargada, iniciando trivia...");
         cargarPregunta();
-        audioFondo.play(); // Iniciar audio de fondo al entrar al juego
-    } else if (document.body.getAttribute("data-page") === "final") {
-        let params = new URLSearchParams(window.location.search);
-        let puntaje = params.get("puntaje") || 0;
-        document.getElementById("puntaje-final").textContent = puntaje + " puntos";
-        audioFondo.pause(); // Detener el audio de fondo al terminar el juego
-        audioFondo.currentTime = 0;
+        audioFondo.play();
     }
-};
+});
 
 function iniciarTrivia() {
     window.location.href = "trivia-juego.html"; // Redirige a la pantalla de la trivia
