@@ -1,0 +1,112 @@
+/* Ajuste de la pantalla */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #192A47; /* Color de respaldo */
+    overflow: hidden; /* Evita scroll */
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100dvh; /* 🔹 Considera la interfaz del navegador en móvil */
+    background-color: black; /* Fondo solo dentro del contenedor */
+    
+    /* 🔹 Centrar contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 🔹 Adaptación en computadora (9:16) */
+@media (min-width: 1024px) {
+    .container {
+        width: 50vh;  /* 9:16 basado en la altura */
+        height: 90vh; /* 90% de la altura de la pantalla */
+    }
+}
+
+/* Imagen superior alineada arriba */
+.imagen-superior {
+    width: 15%;
+    max-width: 100px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Contenedor central */
+.contenido-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+}
+
+/* Texto del puntaje */
+.puntaje-texto {
+    font-family: 'Inter SemiBold', sans-serif;
+    font-size: 3vh;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+/* Resaltar el puntaje */
+#puntaje-final {
+    color: #3fcf4f;
+    font-size: 3.5vh;
+}
+
+/* Imagen de botón */
+.boton-continuar {
+    width: 50%;
+    max-width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 1;
+}
+
+.boton-continuar:hover {
+    transform: scale(0.95);
+}
+
+/* Fila fija alineada abajo */
+.fila-fija {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+/* Columna izquierda (60%) */
+.columna-izquierda {
+    width: 60%;
+}
+
+.columna-izquierda img {
+    width: 100%;
+    height: auto;
+}
+
+/* Columna derecha (40%) */
+.columna-derecha {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.columna-derecha img {
+    width: 50%;
+    height: auto;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia - Resultado</title>
+    <link rel="stylesheet" href="/CSS/trivia-final.css">
+    <script src="../Javascript/scripts.js"></script>
+</head>
+<body data-page="final">
+
+    <div class="container">
+        
+        <!-- Imagen superior alineada arriba -->
+        <img src="../images/FlechaPuntos.svg" alt="Imagen Superior" class="imagen-superior">
+        
+        <!-- Contenedor central con contenido -->
+        <div class="contenido-central">
+            <!-- Texto del puntaje -->
+            <p class="puntaje-texto">¡Has obtenido <span id="puntaje-final">0</span> puntos!</p>
+
+            <!-- Imagen de botón para continuar -->
+            <img src="../images/Btn_Continuar.svg" alt="Botón Continuar" class="boton-continuar" onclick="continuar()">
+        </div>
+
+        <!-- Fila inferior con imágenes -->
+        <div class="fila-fija">
+            <div class="columna-izquierda">
+                <img src="../images/PatronLIneasRegistro.svg" alt="Imagen Izquierda">
+            </div>
+            <div class="columna-derecha">
+                <img src="../images/TexturaRegistro.svg" alt="Imagen Derecha">
+            </div>
+        </div>
+
+    </div>
+
+<script>
+window.onload = function () {
+    let puntaje = sessionStorage.getItem("puntajeFinal") || 0;
+    document.getElementById("puntaje-final").textContent = puntaje + " puntos";
+};
+
+function continuar() {
+    window.location.href = "index.html"; // Cambia esto si el botón debe ir a otra parte
+}
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+/* Ajuste de la pantalla */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #192A47; /* Color de respaldo */
+    overflow: hidden; /* Evita scroll */
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100dvh; /* 🔹 Considera la interfaz del navegador en móvil */
+    background-color: black; /* Fondo solo dentro del contenedor */
+    
+    /* 🔹 Centrar contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 🔹 Adaptación en computadora (9:16) */
+@media (min-width: 1024px) {
+    .container {
+        width: 50vh;  /* 9:16 basado en la altura */
+        height: 90vh; /* 90% de la altura de la pantalla */
+    }
+}
+
+/* Imagen superior alineada arriba */
+.imagen-superior {
+    width: 15%;
+    max-width: 100px;
+    height: auto;
+    margin-top: 10px; /* Espacio mínimo desde la parte superior */
+}
+
+/* Contenedor central */
+.contenido-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Mantiene la alineación centrada */
+    width: 80%;
+    height: 100%;
+    transform: translateY(-10%); /* Mueve el contenido 10% hacia arriba */
+}
+
+/* Imagen del título del juego */
+.titulo-juego {
+    width: 70%;
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Párrafo de instrucciones */
+.instrucciones {
+    width: 80%;
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 2vh;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Párrafo destacado */
+.mensaje-seguridad {
+    font-family: 'Inter SemiBold', sans-serif;
+    font-size: 2.2vh;
+    color: #3fcf4f;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Imagen de botón */
+.boton-iniciar {
+    width: 50%;
+    max-width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 1;
+    padding-top: 20px;
+}
+
+.boton-iniciar:hover {
+    transform: scale(0.95);
+}
+
+/* Fila fija alineada abajo */
+.fila-fija {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+/* Columna izquierda (60%) */
+.columna-izquierda {
+    width: 60%;
+}
+
+.columna-izquierda img {
+    width: 100%;
+    height: auto;
+}
+
+/* Columna derecha (40%) */
+.columna-derecha {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.columna-derecha img {
+    width: 50%;
+    height: auto;
+}

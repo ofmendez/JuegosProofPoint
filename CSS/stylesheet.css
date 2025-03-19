@@ -1,0 +1,133 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo y eliminación de scroll */
+body {
+    background-color: #192A47;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100dvh;
+    background-color: #010101;
+    overflow: hidden;
+}
+
+/* Contenido superior */
+.upper-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    flex-grow: 1;
+}
+
+/* Contenido inferior alineado abajo */
+.lower-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+/* Imagen que ocupa todo el ancho */
+.image-full {
+    width: 100%;
+    height: auto;
+}
+
+/* Imagen alineada a la izquierda */
+.image-left {
+    width: 50%;
+    height: auto;
+    padding-left: 10%;
+    padding-top:10%;
+    align-self: flex-start;
+}
+
+/* Imagen centrada */
+.image-center {
+    width: 60%;
+    height: auto;
+    align-self: center;
+    padding-top:10%;
+}
+
+/* Imagen alineada a la derecha */
+.image-right {
+    width: 80%;
+    height: auto;
+    align-self: flex-end;
+}
+
+/* Fila de columnas */
+.row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Columnas */
+.col-60 {
+    width: 55%;
+}
+
+.image-full-height {
+    width: 100%;
+    height: auto;
+}
+
+.col-40 {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-center-padding {
+    width: 70%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.image-center-padding:hover {
+    transform: scale(0.95);
+}
+
+/* 🖥️ Versión Escritorio: 9:16 y altura del 90% */
+@media (min-width: 1024px) {
+    .container {
+        width: calc(90vh * 9 / 16); /* 9 de ancho, 16 de alto */
+        height: 90vh; /* 90% de la pantalla */
+        max-width: 900px;
+        max-height: 1600px;
+    }
+
+    /* Ajustar imágenes dentro del contenedor */
+    .image-full,
+    .image-left,
+    .image-center,
+    .image-right,
+    .image-full-height,
+    .image-center-padding {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}

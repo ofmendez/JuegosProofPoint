@@ -1,0 +1,187 @@
+/* Ajuste de la pantalla */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #192A47; /* Color de respaldo */
+    overflow: hidden; /* Evita scroll */
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100dvh; /* 🔹 Considera la interfaz del navegador */
+    background-image: url("../images/FondoRegistro.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 🔹 Centrar contenido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Evita scroll */
+}
+
+/* 🔹 Adaptación en computadora (9:16) */
+@media (min-width: 1024px) {
+    .container {
+        width: 50vh;  /* 9:16 basado en la altura */
+        height: 90vh; /* 90% de la altura de la pantalla */
+    }
+}
+
+/* Logos */
+.logo {
+    width: 35%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.titulo {
+    width: 70%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Importar fuentes */
+@font-face {
+    font-family: 'Inter Regular';
+    src: url('../Fonts/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter SemiBold';
+    src: url('../Fonts/Inter-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Párrafo */
+.login-text {
+    width: 80%;
+    text-align: center;
+    font-family: 'Inter Regular', sans-serif;
+    font-weight: 400;
+    font-size: 1.9vh;
+    color: #6e6e6e;
+    margin-bottom: 15px;
+    line-height: 1.2em;
+}
+
+/* Texto en negrilla */
+.bold-text {
+    font-family: 'Inter SemiBold', sans-serif;
+    font-weight: 600;
+}
+
+
+/* Imagen alineada a la derecha */
+.image-right {
+    width: 20%;
+    height: auto;
+    max-width: 80px; /* Ajusta según necesidad */
+    margin-bottom: 0; /* Eliminar margen inferior */
+    padding-right: 0; /* Evitar desplazamientos extra */
+    display: block;
+}
+
+/* Formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 350px;
+}
+
+/* Estilo de los inputs */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #d0d0d0, #fcfcfc);
+    border: none;
+    font-family: 'Inter Regular', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #6e6e6e;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Botón con el mismo estilo de los inputs */
+.login-button {
+    width: 60%;
+    padding: 12px;
+    background: linear-gradient(to bottom, #d0d0d0, #fcfcfc);
+    border: none;
+    border-radius: 20px;
+    font-family: 'Inter SemiBold', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #6e6e6e;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-top: 10px;
+    z-index: 1;
+}
+
+.login-button:hover {
+    transform: scale(0.98);
+}
+
+/* Imagen fija abajo a la izquierda */
+.fixed-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40%; /* Ajusta según necesidad */
+    max-width: 200px;
+    height: auto;
+    z-index: 0;/* Debe estar entre el fondo y el contenido */
+}
+
+/* Contenedor del formulario */
+.form-container {
+    width: 80%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear el texto "REGISTRO" a la izquierda */
+}
+
+/* Título "REGISTRO" antes de los inputs */
+.form-title {
+    font-family: 'Inter SemiBold', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #1067B2;
+}
+
+/* Ajuste del formulario */
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-header {
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    width: 100%;
+    justify-content: space-between; /* Espaciado entre el título y la imagen */
+}
+

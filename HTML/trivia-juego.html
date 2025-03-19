@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia - Preguntas</title>
+    <link rel="stylesheet" href="/CSS/trivia-juego.css">
+    <script src="../Javascript/trivia.js" defer></script>
+</head>
+<body data-page="juego">
+
+
+
+    <div class="container">
+        
+        <!-- Fila superior con imágenes -->
+        <div class="fila-superior">
+            <img src="../images/FlechaPuntos02.svg" alt="Icono 1" class="icono">
+            <img src="../images/TituloMemoria.svg" alt="Icono 2" class="icono-central">
+            <img src="../images/RombosGris.svg" alt="Icono 3" class="icono">
+        </div>
+
+        <!-- Fila de tiempo -->
+        <div class="fila-tiempo">
+            <span id="tiempo-restante">40</span>
+            <div class="barra-tiempo">
+                <div class="progreso"></div>
+            </div>
+        </div>
+
+        <!-- Imagen de la pregunta -->
+        <img id="imagen-pregunta" src="../images/Pregunta01.png" alt="Imagen Pregunta" class="imagen-pregunta">
+
+        <!-- Contenedor de la pregunta y respuestas -->
+        <div class="contenedor-pregunta">
+            <p id="texto-pregunta">¿Quién es el empleado más mencionado en los ejemplos de Proofpoint?</p>
+
+            <div class="opciones">
+                <div class="opcion" onclick="seleccionarRespuesta(this, 1)">Bobbi</div>
+                <div class="opcion" onclick="seleccionarRespuesta(this, 0)">Diego</div>
+                <div class="opcion" onclick="seleccionarRespuesta(this, 0)">Güey</div>
+                <div class="opcion" onclick="seleccionarRespuesta(this, 0)">Mariana</div>
+                <div class="opcion" onclick="seleccionarRespuesta(this, 1)">Mateo</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
