@@ -168,11 +168,42 @@
     </div>
 
     <!-- Botón de verificación -->
-    <img src="../images/Btn_Continuar.svg" alt="Verificar Código" class="boton-verificar" onclick="verificarCodigo()">
+    <img src="../images/Btn_Continuar.svg" alt="Verificar Código" class="boton-verificar" onclick="verificarCifrado()">
+
+    <!-- Contenedor donde se mostrará el mensaje de "Tiempo Finalizado" -->
+<div id="mensaje-finalizado" style="display: none;">
+    Tiempo Finalizado
+</div>
+
 
     <!-- Mensaje de retroalimentación -->
     <p class="mensaje-retro" id="mensaje-retro"></p>
 
+</div>
+
+
+<div class="container" id="puntaje-container" style="display: none;"> 
+    <!-- Imagen superior alineada arriba -->
+    <img src="../images/FlechaPuntos.svg" alt="Imagen Superior" class="imagen-superior">
+    
+    <!-- Contenedor central con contenido -->
+    <div class="contenido-central">
+        <!-- Texto del puntaje -->
+        <p class="puntaje-texto"><span id="puntaje-final">0</span> puntos!</p>
+
+        <!-- Imagen de botón para continuar -->
+        <img src="../images/Btn_Continuar.svg" alt="Botón Continuar" class="boton-continuar" onclick="continuar()">
+    </div>
+
+    <!-- Fila inferior con imágenes -->
+    <div class="fila-fija">
+        <div class="columna-izquierda">
+            <img src="../images/PatronLIneasRegistro.svg" alt="Imagen Izquierda">
+        </div>
+        <div class="columna-derecha">
+            <img src="../images/TexturaRegistro.svg" alt="Imagen Derecha">
+        </div>
+    </div>
 </div>
 
 

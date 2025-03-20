@@ -43,6 +43,8 @@ body {
 }
 
 
+
+
 /* Adaptación en computadora (9:16) */
 @media (min-width: 1024px) {
     .container {
@@ -201,6 +203,7 @@ body {
     border: none !important;
     pointer-events: none; /* Evita interacción */
     width: 15px; /* Ajusta el ancho del espacio */
+    box-shadow: none !important;
 }
 
 
@@ -240,11 +243,11 @@ body {
     font-family: 'Inter SemiBold', sans-serif;
     font-size: 2.2vh;
     color: #6e6e6e;
-    width: 10%;
+    width: 20%;
 }
 
 .barra-tiempo {
-    width: 85%;
+    width: 75%;
     height: 7px;
     background: #555;
     border-radius: 5px;
@@ -256,4 +259,37 @@ body {
     height: 100%;
     background: #3fcf4f;
     transition: width 1s linear;
+}
+
+/* Cambios en los inputs cuando la respuesta es correcta o incorrecta */
+.input-descifrado.correcto {
+    background-color: #3fcf4f; /* Fondo verde */
+    color: white; /* Texto blanco */
+}
+
+.input-descifrado.incorrecto {
+    background-color: #ff4d4d; /* Fondo rojo */
+    color: white; /* Texto blanco */
+}
+
+.mensaje-retro.correcto {
+    color: #3fcf4f; /* Verde para mensaje correcto */
+}
+
+.mensaje-retro.incorrecto {
+    color: #ff4d4d; /* Rojo para mensaje incorrecto */
+}
+
+#mensaje-finalizado {
+    
+    background-image: linear-gradient(to bottom, #d9534f, #b52b27);
+    border-radius: 100px;
+    padding: 10px 20px;
+    color: white;
+    font-family: 'Inter SemiBold', sans-serif;
+    font-size: 2vh;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0px;
+    display: none; /* Inicialmente oculto */
 }
