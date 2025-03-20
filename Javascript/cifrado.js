@@ -40,7 +40,7 @@ function iniciarCifrado() {
         if (tiempoRestante > 0) {
             tiempoRestante--;
             actualizarTiempo();
-
+    
             // Reproducir audio en loop durante los últimos 10 segundos
             if (tiempoRestante <= 10 && !audioUltimos10Segundos.playing) {
                 audioUltimos10Segundos.play(); // Reproducir el audio de los últimos 10 segundos
@@ -48,24 +48,29 @@ function iniciarCifrado() {
         } else {
             // Cuando el tiempo llegue a 0, detener el temporizador
             clearInterval(timer);
-
+    
             // Pausar el audio de los últimos 10 segundos
             audioUltimos10Segundos.pause();
             audioUltimos10Segundos.currentTime = 0; // Resetear el tiempo del audio
-
+    
             // Reproducir audio de fin de tiempo
             audioFinTiempo.play();
-
+    
             // Mostrar el mensaje de "Tiempo Finalizado"
             mostrarMensajeFinalizado();
-
+    
             // Cambiar el fondo de los inputs
             cambiarFondoInputs();
+    
+            // Esperar 1 segundo y luego mostrar el puntaje de 0
+            setTimeout(function() {
+                mostrarPantallaPuntaje(0); // Puntaje en 0
+            }, 1000); // Actualizar cada 1 segundo
         }
-    }, 1000); // Actualizar cada 1 segundo
-
-    console.log("Iniciando juego de Cifrado...");
-}
+    }, 1000); // <-- Cierre correcto de setInterval
+    
+    console.log("Iniciando juego de Cifrado...");}
+    
 
 // Función para actualizar el tiempo en el span y la barra de progreso
 function actualizarTiempo() {
@@ -145,14 +150,37 @@ function verificarCifrado() {
 
         // Mostrar el contenedor de puntaje
         const puntajeContainer = document.getElementById('puntaje-container');
-        puntajeContainer.style.display = 'block';
+        puntajeContainer.style.display = 'flex';
 
         // Mostrar el puntaje final en el contenedor
         const puntajeFinalElement = document.getElementById('puntaje-final');
-        puntajeFinalElement.textContent = `Tu puntaje final es: ${puntajeFinal}`;
+        puntajeFinalElement.textContent = `${puntajeFinal}`;
+
+        setTimeout(function() {
+            mostrarPantallaPuntaje(puntajeFinal);
+        }, 500);
+
     } else {
-        // Si el mensaje es incorrecto
         console.log("Mensaje Incorrecto. Inténtalo de nuevo.");
+        
+        // Reproducir audio de error
+        let audioError = new Audio('../audio/incorrecto.mp3'); // Reemplaza con el nombre correcto
+        audioError.play();
+
+        // Aplicar efecto de error en los inputs
+        inputsDescifrado.forEach(input => {
+            input.style.backgroundImage = 'linear-gradient(to bottom, #d9534f, #b52b27)';
+            input.style.color = '#ffffff';
+            input.classList.add('shake'); // Agregar animación
+
+            // Borrar el contenido después de 1 segundo
+            setTimeout(() => {
+                input.value = ""; // Vaciar input
+                input.style.backgroundImage = ''; // Quitar fondo rojo
+                input.style.color = ''; // Restaurar color
+                input.classList.remove('shake'); // Quitar animación
+            }, 1000);
+        });
     }
 }
 
@@ -162,7 +190,7 @@ function verificarCifrado() {
 function mostrarPuntaje(puntaje) {
     const mensajePuntaje = document.getElementById('mensaje-puntaje');
     mensajePuntaje.style.display = 'block';
-    mensajePuntaje.textContent = `Tu puntaje final es: ${puntaje}`;
+    mensajePuntaje.textContent = `${puntaje}`;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -202,3 +230,17 @@ document.addEventListener("DOMContentLoaded", function () {
         botonVerificar.addEventListener('click', verificarCifrado);
     }
 });
+
+
+function mostrarPantallaPuntaje(puntaje) {
+    // Ocultar el contenedor del juego
+    document.getElementById('juego-container').style.display = 'none';
+
+    // Mostrar el contenedor de puntaje
+    const puntajeContainer = document.getElementById('puntaje-container');
+    puntajeContainer.style.display = 'flex';
+
+    // Mostrar el puntaje final en el contenedor
+    const puntajeFinalElement = document.getElementById('puntaje-final');
+    puntajeFinalElement.textContent = `${puntaje}`;
+}

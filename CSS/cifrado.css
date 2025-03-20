@@ -1,3 +1,29 @@
+/* Importar fuentes */
+@font-face {
+    font-family: 'Inter Regular';
+    src: url('../Fonts/Inter-Regular.woff2') format('woff2'),
+    url('../Fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter SemiBold';
+    src: url('../Fonts/Inter-SemiBold.woff2') format('woff2'),
+    url('../Fonts/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avapore';
+    src: url('../Fonts/AvaporeRegular.woff2') format('woff2'),
+    url('../Fonts/AvaporeRegular.ttf') format('truetype');
+    
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Ajuste de la pantalla */
 body {
     margin: 0;
@@ -111,7 +137,7 @@ body {
     height: auto;
     cursor: pointer;
     transition: transform 0.2s ease;
-    z-index: 1;
+    z-index: 2;
     padding-top: 20px;
 }
 
@@ -240,10 +266,12 @@ body {
 }
 
 #tiempo-restante {
-    font-family: 'Inter SemiBold', sans-serif;
+    font-family: 'Avapore', sans-serif !important;
     font-size: 2.2vh;
     color: #6e6e6e;
     width: 20%;
+    padding-right: 2%;
+    text-align: center;
 }
 
 .barra-tiempo {
@@ -292,4 +320,47 @@ body {
     font-weight: 600;
     margin-top: 0px;
     display: none; /* Inicialmente oculto */
+}
+
+/* Imagen de botón */
+.boton-continuar {
+    width: 50%;
+    max-width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 2;
+}
+
+
+/* Texto del puntaje */
+.puntaje-texto {
+    font-family: 'Inter SemiBold', sans-serif;
+    font-size: 3vh;
+    color: #6e6e6e;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+/* Contenedor central */
+.contenido-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
 }

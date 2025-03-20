@@ -1,0 +1,192 @@
+/* Importar fuentes */
+@font-face {
+    font-family: 'Inter Regular';
+    src: url('../Fonts/Inter-Regular.woff2') format('woff2'),
+    url('../Fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter SemiBold';
+    src: url('../Fonts/Inter-SemiBold.woff2') format('woff2'),
+    url('../Fonts/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avapore';
+    src: url('../Fonts/AvaporeRegular.woff2') format('woff2'),
+    url('../Fonts/AvaporeRegular.ttf') format('truetype');
+    
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Ajuste de la pantalla */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #192A47; /* Color de respaldo */
+    overflow: hidden; /* Evita scroll */
+}
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100dvh; /* 🔹 Considera la interfaz del navegador */
+    background-image: url("../images/FondoRanking.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 🔹 Centrar contenido */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Evita scroll */
+}
+
+/* 🔹 Adaptación en computadora (9:16) */
+@media (min-width: 1024px) {
+    .container {
+        width: 50vh;  /* 9:16 basado en la altura */
+        height: 90vh; /* 90% de la altura de la pantalla */
+    }
+
+    .lista-ranking {
+        max-height:55vh !important;
+    }
+}
+
+
+/* Contenido */
+.contenido-ranking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.contenido-titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: center;
+    width: 80%;
+    padding-top: 5vh;
+}
+
+/* Título */
+.titulo-ranking {
+    width: 50%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.lista-ranking {
+    width: 80%;
+    max-width: 400px;
+    background: url("../images/FondoTabla.svg") no-repeat center center;
+    background-size: cover; /* Ajusta la imagen para cubrir toda la lista */
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    max-height:60dvh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.tabla-ranking {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+/* 🔹 Ajuste del ancho de columnas */
+.tabla-ranking th:nth-child(1),
+.tabla-ranking td:nth-child(1) {
+    width: 20%;
+}
+
+.tabla-ranking th:nth-child(2),
+.tabla-ranking td:nth-child(2) {
+    width: 60%;
+    text-align: left; /* Alinea los nombres a la izquierda */
+    padding-left: 10px;
+}
+
+.tabla-ranking th:nth-child(3),
+.tabla-ranking td:nth-child(3) {
+    width: 20%;
+}
+
+/* 🔹 Estilo de los títulos de la tabla */
+.titulo-tabla th {
+    background-color: #002d6c;
+    font-family: 'Avapore', sans-serif !important;  /* Forzar la fuente */
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 1.1vh;
+    padding: 10px;
+    border: 1px solid #fff;
+}
+
+/* 🔹 Estilos de las celdas */
+.tabla-ranking td {
+    padding: 10px;
+    border: 1px solid #fff;
+    font-family: 'Inter Regular', sans-serif !important;  /* Forzar fuente diferente */
+    font-size: 1.2vh;
+}
+
+
+/* 🔹 Alternar colores en las filas */
+.tabla-ranking tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.posicion-top {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Ajuste de los íconos */
+.ranking-icon {
+    width: 18px;  /* Ajusta el tamaño */
+    height: auto;
+    margin-right: 5px; /* Espacio entre la imagen y el número */
+    vertical-align: top; /* Alinea con el número */
+}
+
+/* 🔹 Personalización del scrollbar en navegadores basados en WebKit */
+.lista-ranking::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+}
+
+.lista-ranking::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); /* Color del fondo del scrollbar */
+    border-radius: 4px;
+}
+
+.lista-ranking::-webkit-scrollbar-thumb {
+    background: #002d6c; /* Color del scrollbar */
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+/* Evita que el texto e imágenes sean seleccionables */
+body, .container, .contenido-ranking, .lista-ranking, .tabla-ranking {
+    user-select: none; /* No permite selección */
+    -webkit-user-select: none; /* Para navegadores basados en WebKit */
+    -moz-user-select: none; /* Para Firefox */
+    -ms-user-select: none; /* Para Internet Explorer y Edge */
+}

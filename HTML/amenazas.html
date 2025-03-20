@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amenazas</title>
+    <link rel="stylesheet" href="../CSS/amenazas.css">
+</head>
+<body>
+    <!-- Contenedor de Instrucciones -->
+    <div id="instrucciones-container" class="container">
+        <div class="contenido-instrucciones">
+            <div class="contenido-logo">
+                <img src="../images/LogoHome.svg" alt="Logo del Juego" class="logo-juego">
+            </div>
+            <img src="../images/TituloAmenazas.svg" alt="Título del Juego" class="titulo-juego">
+            <p class="descripcion-juego">
+                ¡Atención, en esta tercera etapa tu misión es eliminar las amenazas que intentan infiltrarse en el sistema mientras proteges los mensajes legítimos.
+                <br> Mantente alerta: correos maliciosos aparecerán en la pantalla y deberás enviarlos a cuarentena antes de que causen daño. Pero ten cuidado, no toques los correos legítimos o podrás comprometer la misión.
+                <br>Tu objetivo es mantener el sistema limpio y seguro en menos de 2 minutos.
+            </p>
+            <p class="mensaje-seguridad">¿Tienes la velocidad y precisión necesarias para garantizar la navegación del mensaje secreto?</p>
+            <img src="../images/Btn_StartHome.svg" alt="Botón Iniciar" class="boton-iniciar" onclick="iniciarAmenazas()">
+        </div>
+    </div>
+
+    <!-- Contenedor del Juego -->
+    <div id="juego-container" class="container oculto">
+        <div class="contenido-juego">
+            <!-- Título del juego -->
+            <img src="../images/TituloAmenazas.svg" alt="Título del Juego" class="titulo-juego">
+
+            
+            <!-- Puntos e icono -->
+            <div class="puntos">
+                <img src="../images/ScoreIcon.svg" alt="Icono de Puntaje" class="icono-puntos">
+                <span id="puntaje">0</span>
+            </div>
+
+            <!-- Retícula de 5x5 -->
+            <div class="reticula">
+                <!-- Las imágenes se generarán dinámicamente -->
+            </div>
+
+            <!-- Tiempo de juego -->
+            <div class="tiempo">
+                <span id="temporizador">30</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor del mensaje final -->
+<div id="final-container" class="container oculto">
+    <div class="contenido-final">
+        <h2 class="puntaje-texto">¡Tiempo Finalizado!</h2>
+        <p class="puntaje-texto">Tu puntaje final es: <span id="puntaje-final">0</span></p>
+        <img src="../images/Btn_Continuar.svg" alt="Botón Continuar" class="boton-continuar" onclick="continuar()">
+    </div>
+</div>
+
+
+    <script src="../Javascript/amenazas.js"></script>
+</body>
+</html>
