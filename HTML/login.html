@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission Protecting Sites 2025</title>
-    <link rel="stylesheet" href="/CSS/login.css"> <!-- Enlace al CSS -->
-    <script src="/JS/scripts.js"></script>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission Protecting Sites 2025</title>
+  <link rel="stylesheet" href="/CSS/login.css"> <!-- Enlace al CSS -->
+
+  <script src="../Javascript/main.js" type="module" defer></script>
 </head>
+
 <body>
 
-        <div class="container">
-        <!-- Logo de la marca -->
-        <img src="../images/LogoRegistro.svg" alt="Logo Marca" class="logo">
+  <div class="container">
+    <!-- Logo de la marca -->
+    <img src="../images/LogoRegistro.svg" alt="Logo Marca" class="logo">
 
-        <!-- Logo del aplicativo -->
-        <img src="../images/TituloRegistro.svg" alt="Logo App" class="titulo">
+    <!-- Logo del aplicativo -->
+    <img src="../images/TituloRegistro.svg" alt="Logo App" class="titulo">
 
-        <!-- Párrafo centrado -->
-        <p class="login-text">
-            En el cuadrante PP-2025, un mensaje secreto debe ser compartido de manera segura. Solo un equipo con la mejor tecnología puede protegerlo y entregarlo a tiempo, garantizando la seguridad de las personas y la integridad de los datos.  
-            En Proofpoint, nos especializamos en ofrecer soluciones avanzadas para salvaguardar lo que más importa: <span class="bold-text">tú y tu información.</span>
-        </p>
+    <!-- Párrafo centrado -->
+    <p class="login-text">
+      En el cuadrante PP-2025, un mensaje secreto debe ser compartido de manera segura. Solo un equipo con la mejor
+      tecnología puede protegerlo y entregarlo a tiempo, garantizando la seguridad de las personas y la integridad de
+      los datos.
+      En Proofpoint, nos especializamos en ofrecer soluciones avanzadas para salvaguardar lo que más importa: <span
+        class="bold-text">tú y tu información.</span>
+    </p>
+    <!-- Contenedor del formulario con título -->
+    <div class="form-container">
+      <div class="form-header">
+        <p class="form-title">REGISTRO</p>
+        <img src="../images/TexturaRegistro.svg" alt="Imagen lateral" class="image-right">
+      </div>
 
-        <!-- Contenedor del formulario con título -->
-        <div class="form-container">
-            <div class="form-header">
-                <p class="form-title">REGISTRO</p>
-                <img src="../images/TexturaRegistro.svg" alt="Imagen lateral" class="image-right">
-            </div>
-        
-            <form class="login-form">
-                <input type="text" placeholder="Nombre" class="input-field">
-                <input type="text" placeholder="Empresa" class="input-field">
-                <input type="number" placeholder="N° empleados" class="input-field">
-                <button type="submit" class="login-button">ENVIAR</button>
-            </form>
-        </div>
-
-<!-- Imagen fija abajo a la izquierda -->
-<img src="../images/PatronLIneasRegistro.svg" alt="Decoración" class="fixed-image">
+      <form class="login-form" onsubmit="return TryLogin(this)" action="#">
+        <input type="text" placeholder="Nombre" class="input-field" id="name">
+        <input type="text" placeholder="Empresa" class="input-field" id="company">
+        <input type="number" placeholder="N° empleados" class="input-field" id="employees">
+        <button type="submit" class="login-button">ENVIAR</button>
+      </form>
     </div>
+    <!-- Imagen fija abajo a la izquierda -->
+    <img src="../images/PatronLIneasRegistro.svg" alt="Decoración" class="fixed-image">
+  </div>
 
-    
+
 
 </body>
+
 </html>

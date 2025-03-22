@@ -1,3 +1,5 @@
+import {updateScore} from "../Javascript/database.js";
+
 let timer; // Variable para guardar el temporizador
 let tiempoRestante = 120; // Tiempo en segundos (2 minutos)
 let progresoBarra; // Referencia a la barra de progreso
@@ -17,7 +19,7 @@ function cargarAudios() {
     audioUltimos10Segundos.loop = true; // Configurar el audio para que sea en loop
 }
 
-function iniciarCifrado() {
+window.iniciarCifrado = function() {
     // Cargar los audios
     cargarAudios();
 
@@ -118,7 +120,7 @@ function cambiarFondoInputs() {
 
 // Función para verificar el mensaje descifrado
 // Función para verificar el mensaje del jugador
-function verificarCifrado() {
+window.verificarCifrado = function() {
     const inputsDescifrado = document.querySelectorAll(".input-descifrado");
     let mensajeIngresado = "";
 
@@ -243,4 +245,9 @@ function mostrarPantallaPuntaje(puntaje) {
     // Mostrar el puntaje final en el contenedor
     const puntajeFinalElement = document.getElementById('puntaje-final');
     puntajeFinalElement.textContent = `${puntaje}`;
+}
+window.continuar = function() {
+  window.location = "ranking.html";
+  updateScore(localStorage.getItem("userName"), '03', puntaje);
+  
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia - Resultado</title>
     <link rel="stylesheet" href="/CSS/trivia-final.css">
-    <script src="../Javascript/scripts.js"></script>
+    <script src="../Javascript/scripts.js" type="module"></script>
 </head>
 <body data-page="final">
 
@@ -17,7 +17,7 @@
         <!-- Contenedor central con contenido -->
         <div class="contenido-central">
             <!-- Texto del puntaje -->
-            <p class="puntaje-texto">¡Has obtenido <span id="puntaje-final">0</span> puntos!</p>
+            <p class="puntaje-texto">¡Has obtenido <span id="puntaje-final">--</span> puntos!</p>
 
             <!-- Imagen de botón para continuar -->
             <img src="../images/Btn_Continuar.svg" alt="Botón Continuar" class="boton-continuar" onclick="continuar()">
@@ -35,16 +35,23 @@
 
     </div>
 
-<script>
+<script type="module">
+import {updateScore} from "../Javascript/database.js";
+let puntaje = 0;
 window.onload = function () {
-    let puntaje = sessionStorage.getItem("puntajeFinal") || 0;
+    puntaje = sessionStorage.getItem("puntajeFinal") || 0;
     document.getElementById("puntaje-final").textContent = puntaje + " puntos";
 };
 
-function continuar() {
-    window.location.href = "index.html"; // Cambia esto si el botón debe ir a otra parte
-}
-
+window.continuar = function () {
+    // Cambia esto si el botón debe ir a otra parte
+    updateScore(localStorage.getItem("userName"), '01', puntaje).then(() => {
+        window.location.href = "amenazas.html";
+    }).catch((error) => {
+        console.error(error);
+        alert("Ha ocurrido un error, intente nuevamente. E.continuar");
+    });
+};
 
 </script>
 

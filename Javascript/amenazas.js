@@ -1,3 +1,5 @@
+import {updateScore} from "../Javascript/database.js";
+
 let amenazasEliminadas = 0;  // Contador de amenazas eliminadas
 let puntaje = 0;             // Puntaje del jugador
 let tiempoRestante = 30;     // Tiempo de juego en segundos
@@ -129,7 +131,7 @@ function eliminarImagen(event) {
 
 
 // Función para iniciar el juego cuando se haga clic en el botón
-function iniciarAmenazas() {
+window.iniciarAmenazas = function() {
     document.getElementById('instrucciones-container').style.display = 'none';
     document.getElementById('juego-container').style.display = 'flex'; // Cambiar flex si quieres mantener la alineación
 
@@ -164,4 +166,14 @@ function mostrarFinJuego() {
 
     // Mostrar el puntaje final
     document.getElementById('puntaje-final').innerText = puntaje;
+}
+
+window.continuar = function() {
+  updateScore(localStorage.getItem("userName"), '02', puntaje).then((res)=>{
+    window.location.href = "cifrado.html";
+  }).catch((error) => {
+    console.error(error);
+    alert("Ha ocurrido un error, intente nuevamente. E.continuar");
+  });
+  
 }

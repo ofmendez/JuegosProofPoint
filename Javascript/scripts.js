@@ -1,3 +1,4 @@
+
 function ajustarAltura() {
     const container = document.querySelector(".container");
     if (container) {
