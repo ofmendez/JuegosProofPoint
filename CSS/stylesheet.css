@@ -129,6 +129,7 @@ body {
 
 .image-center-padding {
     width: 70%;
+    min-width: 150px;
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease;

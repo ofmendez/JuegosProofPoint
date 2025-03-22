@@ -193,6 +193,11 @@ function seleccionarRespuesta(elemento, esCorrecta) {
     audioAdvertencia.pause();
     audioAdvertencia.currentTime = 0;
 
+    // Bloquear todas las opciones para que no puedan seleccionarse más de una vez
+    document.querySelectorAll(".opcion").forEach(opcion => {
+        opcion.style.pointerEvents = "none"; // Desactiva la interacción
+    });
+
     if (esCorrecta) {
         elemento.classList.add("correcta");
         elemento.textContent = "CORRECTO";
@@ -205,6 +210,7 @@ function seleccionarRespuesta(elemento, esCorrecta) {
 
     manejarRespuesta(esCorrecta);
 }
+
 
 
 

@@ -94,7 +94,6 @@ body {
 
 .lista-ranking {
     width: 80%;
-    max-width: 400px;
     background: url("../images/FondoTabla.svg") no-repeat center center;
     background-size: cover; /* Ajusta la imagen para cubrir toda la lista */
     padding: 15px;
