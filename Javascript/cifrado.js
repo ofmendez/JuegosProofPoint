@@ -11,6 +11,7 @@ let puntaje = 0; // Puntaje del jugador
 
 const mensajeCorrecto = "PROTEJAALASPERSONASDEFIENDALOSDATOS"; // Mensaje correcto
 
+let realPuntajeFinal = 0; // Puntaje final real
 // Cargar los audios
 function cargarAudios() {
     audioUltimos10Segundos = new Audio('../audio/tiempo.mp3');
@@ -145,6 +146,7 @@ window.verificarCifrado = function() {
         
         // Mostrar el puntaje
         const puntajeFinal = 150 + tiempoRestante;
+        realPuntajeFinal = 150 + tiempoRestante;
         console.log("Puntaje total: " + puntajeFinal);
 
         // Ocultar el contenedor del juego
@@ -247,7 +249,13 @@ function mostrarPantallaPuntaje(puntaje) {
     puntajeFinalElement.textContent = `${puntaje}`;
 }
 window.continuar = function() {
-  window.location = "ranking.html";
-  updateScore(localStorage.getItem("userName"), '03', puntaje);
+  updateScore(localStorage.getItem("userName"), '03', realPuntajeFinal).then(() => {
+    window.location = "ranking.html";
+  }).catch((error) => {
+    console.error(error);
+    alert("Ha ocurrido un error, intente nuevamente. E.continuar");
+  });
+
+
   
 }

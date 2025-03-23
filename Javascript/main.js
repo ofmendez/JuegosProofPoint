@@ -33,7 +33,7 @@ window.TryLogin = (form)=>{
       for (const u in res) 
           if (res.hasOwnProperty(u)) 
               exist |= u=== form.elements['name'].value
-      localStorage.setItem("userName", form.elements['name'].value );
+      localStorage.setItem("userName", form.elements['name'].value+form.elements['company'].value );
       if(exist)
         console.log("Usuario ya existe")
       // GoToLobby();
@@ -125,6 +125,7 @@ const Loading =(state)=>{
 const Login = (form)=>{
   Reset();
   createUserData( 
+    form.elements['name'].value+form.elements['company'].value, 
     form.elements['name'].value, 
     form.elements['company'].value,
     form.elements['employees'].value,

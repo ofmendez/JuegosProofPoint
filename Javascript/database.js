@@ -118,16 +118,15 @@ export function DeleteUser(userId) {
     });
 }
 
-export function createUserData(_username, company, employees) {
-    console.log("createuser: "+_username);
+export function createUserData(_id, _username, company, employees) {
+    console.log("createuser: "+_id);
     return new Promise((resolve,reject)=>{
         getDB().then((db)=>{
             console.log("createuser isOnline: "+isOnline);
             while(!isOnline){
                 toggleOnlineState(true);
             } 
-            set(ref(db, 'users/' + _username), {
-                username : _username,
+            set(ref(db, 'users/' + _id), {
                 name : _username,
                 company : company,
                 employees : employees,
